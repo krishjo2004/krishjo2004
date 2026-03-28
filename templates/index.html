@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Doctor Appointment</title>
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', sans-serif;
+        }
+
+        body {
+            height: 100vh;
+            background: linear-gradient(135deg, #4facfe, #00f2fe);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .container {
+            background: white;
+            padding: 30px;
+            border-radius: 15px;
+            width: 350px;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.2);
+            animation: fadeIn 0.8s ease-in-out;
+        }
+
+        h2 {
+            text-align: center;
+            margin-bottom: 20px;
+            color: #333;
+        }
+
+        label {
+            font-weight: 600;
+            display: block;
+            margin-top: 10px;
+            color: #555;
+        }
+
+        input, select {
+            width: 100%;
+            padding: 10px;
+            margin-top: 5px;
+            border-radius: 8px;
+            border: 1px solid #ccc;
+            outline: none;
+            transition: 0.3s;
+        }
+
+        input:focus, select:focus {
+            border-color: #4facfe;
+            box-shadow: 0 0 5px rgba(79,172,254,0.5);
+        }
+
+        button {
+            width: 100%;
+            margin-top: 20px;
+            padding: 12px;
+            border: none;
+            border-radius: 10px;
+            background: linear-gradient(135deg, #43e97b, #38f9d7);
+            color: white;
+            font-size: 16px;
+            cursor: pointer;
+            transition: 0.3s;
+        }
+
+        button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+        }
+
+        a {
+            display: block;
+            text-align: center;
+            margin-top: 15px;
+            text-decoration: none;
+            color: #4facfe;
+            font-weight: 500;
+        }
+
+        a:hover {
+            text-decoration: underline;
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+    </style>
+</head>
+
+<body>
+
+<div class="container">
+    <h2>🩺 Book Appointment</h2>
+
+    <form action="/book" method="post">
+
+        <label>Name</label>
+        <input type="text" name="name" required>
+
+        <label>Phone Number</label>
+        <input type="text" name="phone" required>
+
+        <label>Select Doctor</label>
+        <select name="doctor">
+            {% for doctor in doctors %}
+            <option value="{{ doctor }}">{{ doctor }}</option>
+            {% endfor %}
+        </select>
+
+        <label>Date</label>
+        <input type="date" name="date" required>
+
+        <label>Time</label>
+        <input type="time" name="time" required>
+
+        <button type="submit">Book Appointment</button>
+
+    </form>
+
+    <a href="/login">🔐 View Appointments</a>  
+</div>
+
+</body>
+</html>

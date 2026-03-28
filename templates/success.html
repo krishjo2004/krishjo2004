@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Success</title>
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', sans-serif;
+        }
+
+        body {
+            height: 100vh;
+            background: linear-gradient(135deg, #43e97b, #38f9d7);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .card {
+            background: white;
+            padding: 30px;
+            border-radius: 15px;
+            width: 350px;
+            text-align: center;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.2);
+            animation: fadeIn 0.8s ease-in-out;
+        }
+
+        .checkmark {
+            font-size: 60px;
+            color: #43e97b;
+            margin-bottom: 15px;
+            animation: pop 0.5s ease;
+        }
+
+        h2 {
+            color: #333;
+            margin-bottom: 15px;
+        }
+
+        p {
+            color: #555;
+            margin: 8px 0;
+            font-size: 15px;
+        }
+
+        .info {
+            background: #f7f7f7;
+            padding: 15px;
+            border-radius: 10px;
+            margin-top: 15px;
+            text-align: left;
+        }
+
+        .info strong {
+            color: #333;
+        }
+
+        a {
+            display: inline-block;
+            margin-top: 20px;
+            padding: 10px 20px;
+            border-radius: 8px;
+            background: linear-gradient(135deg, #4facfe, #00f2fe);
+            color: white;
+            text-decoration: none;
+            transition: 0.3s;
+        }
+
+        a:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes pop {
+            0% {
+                transform: scale(0);
+            }
+            80% {
+                transform: scale(1.2);
+            }
+            100% {
+                transform: scale(1);
+            }
+        }
+    </style>
+
+</head>
+
+<body>
+
+<div class="card">
+    <div class="checkmark">✅</div>
+    <h2>Appointment Confirmed!</h2>
+
+    <div class="info">
+        <p><strong>Name:</strong> {{ name }}</p>
+        <p><strong>Doctor:</strong> {{ doctor }}</p>
+        <p><strong>Date:</strong> {{ date }}</p>
+        <p><strong>Time:</strong> {{ time }}</p>
+    </div>
+
+    <a href="/">🏠 Back to Home</a>
+</div>
+
+</body>
+</html>
